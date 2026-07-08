@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Case - BCP_MultipeContext.spec.ts</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; }
+h1 { color: #1a1a2e; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; }
+h2 { color: #1a1a2e; margin-top: 28px; }
+h3 { color: #1a1a2e; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 10px 14px; text-align: left; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; }
+tr:nth-child(even) { background: #f9fafb; }
+.highlight { background: #dbeafe; font-weight: 600; }
+.screenshot { max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin: 8px 0; }
+.step-num { display: inline-block; background: #3b82f6; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-weight: 700; font-size: 12px; margin-right: 8px; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+pre { background: #1a1a2e; color: #e0e0e0; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Test Case Document</h1>
+<p><strong>Source File:</strong> <code>tests\first_tests\BCP_MultipeContext.spec.ts</code></p>
+<p><strong>Generated:</strong> July 9, 2026</p>
+
+<h2>Test Suite Overview</h2>
+<table>
+  <tr><th>Field</th><th>Details</th></tr>
+  <tr><td>Test Suite Name</td><td>Multiple Browser Context (BCP) Verification</td></tr>
+  <tr><td>Application URL</td><td>https://app.vwo.com/login</td></tr>
+  <tr><td>Objective</td><td>Verify multiple isolated browser contexts (Admin, Viewer) can co-exist under a single browser instance</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Script Type</td><td>Playwright Script (non-test-runner)</td></tr>
+</table>
+
+<h2>Test Cases</h2>
+<table>
+  <tr>
+    <th>TC ID</th>
+    <th>Test Scenario</th>
+    <th>Test Steps</th>
+    <th>Expected Result</th>
+    <th>Browser</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td class="highlight">TC-001</td>
+    <td>Verify Admin context navigates to VWO login page</td>
+    <td>
+      <span class="step-num">1</span> Launch Chromium browser with <code>chromium.launch({headless: false})</code><br>
+      <span class="step-num">2</span> Create Admin context via <code>browser.newContext()</code><br>
+      <span class="step-num">3</span> Open a new page in Admin context<br>
+      <span class="step-num">4</span> Navigate to https://app.vwo.com/login<br>
+      <span class="step-num">5</span> Capture page title and screenshot<br>
+      <span class="step-num">6</span> Close Admin page and context
+    </td>
+    <td>
+      - Browser launches successfully<br>
+      - Admin context is created isolated<br>
+      - Page navigates to VWO login page<br>
+      - Title matches expected "Login - Wingify"
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-002</td>
+    <td>Verify Viewer context navigates to VWO login page independently</td>
+    <td>
+      <span class="step-num">1</span> Create Viewer context via <code>browser.newContext()</code> (same browser)<br>
+      <span class="step-num">2</span> Open a new page in Viewer context<br>
+      <span class="step-num">3</span> Navigate to https://app.vwo.com/login<br>
+      <span class="step-num">4</span> Capture page title and screenshot<br>
+      <span class="step-num">5</span> Close Viewer page and context
+    </td>
+    <td>
+      - Viewer context is created as a separate isolated session<br>
+      - Page navigates to VWO login page independently<br>
+      - Both Admin and Viewer contexts coexist without interference<br>
+      - Cleanup completes without errors
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+</table>
+
+<h2>Key Concepts Verified</h2>
+<table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td>Browser Instance</td><td>Single <code>chromium.launch()</code> — heaviest operation, done once</td></tr>
+  <tr><td>Multiple Contexts</td><td>Each <code>browser.newContext()</code> creates an isolated session with separate cookies/storage</td></tr>
+  <tr><td>Context Independence</td><td>Admin and Viewer contexts operate independently under the same browser process</td></tr>
+  <tr><td>Cleanup Order</td><td>Pages closed first, then contexts, then browser (reverse order of creation)</td></tr>
+</table>
+
+<h2>Execution Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total Test Cases</td><td>2</td></tr>
+  <tr><td>Passed</td><td>2</td></tr>
+  <tr><td>Failed</td><td>0</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Artifacts</td><td>Screenshots</td></tr>
+</table>
+
+<h2>Console Output</h2>
+<pre>
+Browser Launched
+Admin: on login page - Login - Wingify
+Viewer: on login page - Login - Wingify
+Browser closed successfully
+</pre>
+
+<h2>Screenshots</h2>
+
+<h3>Step 4: Admin navigates to VWO Login Page</h3>
+<img class="screenshot" src="../screenshots/BCP_MultipeContext/01-admin-login-page.png" alt="Admin VWO Login">
+
+<h3>Step 4: Viewer navigates to VWO Login Page</h3>
+<img class="screenshot" src="../screenshots/BCP_MultipeContext/02-viewer-login-page.png" alt="Viewer VWO Login">
+
+<h2>Source Code</h2>
+<pre>
+import {chromium, Browser, BrowserContext, Page} from "playwright";
+
+async function multiUserTest() {
+
+    let browser: Browser = await chromium.launch({headless: false});
+    console.log("Browser Launched");
+
+    // Admin Context
+    let adminContext: BrowserContext = await browser.newContext();
+    let adminPage: Page = await adminContext.newPage();
+    await adminPage.goto("https://app.vwo.com/login");
+    await adminPage.screenshot({ path: "screenshots/BCP_MultipeContext/01-admin-login-page.png", fullPage: true });
+    console.log("Admin: on login page -", await adminPage.title());
+
+    // Viewer Context
+    let viewerContext: BrowserContext = await browser.newContext();
+    let viewerPage: Page = await viewerContext.newPage();
+    await viewerPage.goto("https://app.vwo.com/login");
+    await viewerPage.screenshot({ path: "screenshots/BCP_MultipeContext/02-viewer-login-page.png", fullPage: true });
+    console.log("Viewer: on login page -", await viewerPage.title());
+
+    // Cleanup - reverse order
+    await adminPage.close();
+    await adminContext.close();
+    await viewerPage.close();
+    await viewerContext.close();
+    await browser.close();
+
+    console.log("Browser closed successfully");
+}
+
+multiUserTest();
+</pre>
+
+</body>
+</html>

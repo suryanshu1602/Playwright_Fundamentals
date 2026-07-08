@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Case - BCP_Multiple_Pages.spec.ts</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; }
+h1 { color: #1a1a2e; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; }
+h2 { color: #1a1a2e; margin-top: 28px; }
+h3 { color: #1a1a2e; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 10px 14px; text-align: left; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; }
+tr:nth-child(even) { background: #f9fafb; }
+.highlight { background: #dbeafe; font-weight: 600; }
+.screenshot { max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin: 8px 0; }
+.step-num { display: inline-block; background: #3b82f6; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-weight: 700; font-size: 12px; margin-right: 8px; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+pre { background: #1a1a2e; color: #e0e0e0; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Test Case Document</h1>
+<p><strong>Source File:</strong> <code>tests\first_tests\BCP_Multiple_Pages.spec.ts</code></p>
+<p><strong>Generated:</strong> July 9, 2026</p>
+
+<h2>Test Suite Overview</h2>
+<table>
+  <tr><th>Field</th><th>Details</th></tr>
+  <tr><td>Test Suite Name</td><td>Multiple Pages (Tabs) in a Single Browser Context</td></tr>
+  <tr><td>Application URLs</td><td>https://app.vwo.com/login, https://example.com, https://www.wikipedia.org</td></tr>
+  <tr><td>Objective</td><td>Verify multiple pages/tabs can be opened within a single browser context under one browser instance</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Script Type</td><td>Playwright Script (non-test-runner)</td></tr>
+</table>
+
+<h2>Test Cases</h2>
+<table>
+  <tr>
+    <th>TC ID</th>
+    <th>Test Scenario</th>
+    <th>Test Steps</th>
+    <th>Expected Result</th>
+    <th>Browser</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td class="highlight">TC-001</td>
+    <td>Verify Page 1 navigates to VWO login in the shared context</td>
+    <td>
+      <span class="step-num">1</span> Launch Chromium browser<br>
+      <span class="step-num">2</span> Create a single browser context<br>
+      <span class="step-num">3</span> Open Page 1 (tab) in the context<br>
+      <span class="step-num">4</span> Navigate to https://app.vwo.com/login<br>
+      <span class="step-num">5</span> Capture title and screenshot
+    </td>
+    <td>
+      - Browser launches successfully<br>
+      - Context is created<br>
+      - Page navigates to VWO login URL
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-002</td>
+    <td>Verify Page 2 navigates to Example Domain in the same context</td>
+    <td>
+      <span class="step-num">1</span> Open Page 2 (new tab) in the same context<br>
+      <span class="step-num">2</span> Navigate to https://example.com<br>
+      <span class="step-num">3</span> Capture title and screenshot
+    </td>
+    <td>
+      - New tab opens within the same context<br>
+      - Page navigates to Example Domain<br>
+      - Title displays "Example Domain"
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-003</td>
+    <td>Verify Page 3 navigates to Wikipedia in the same context</td>
+    <td>
+      <span class="step-num">1</span> Open Page 3 (new tab) in the same context<br>
+      <span class="step-num">2</span> Navigate to https://www.wikipedia.org<br>
+      <span class="step-num">3</span> Capture title and screenshot
+    </td>
+    <td>
+      - New tab opens within the same context<br>
+      - Page navigates to Wikipedia<br>
+      - Title displays "Wikipedia"
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-004</td>
+    <td>Verify all pages coexist independently under one context and cleanup completes</td>
+    <td>
+      <span class="step-num">1</span> All 3 pages remain open simultaneously<br>
+      <span class="step-num">2</span> Close each page in reverse order<br>
+      <span class="step-num">3</span> Close context<br>
+      <span class="step-num">4</span> Close browser
+    </td>
+    <td>
+      - All 3 pages operate independently<br>
+      - No cross-page interference<br>
+      - Cleanup completes without errors
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+</table>
+
+<h2>Key Concepts Verified</h2>
+<table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td>Single Context, Multiple Pages</td><td>Multiple <code>context.newPage()</code> calls create separate tabs sharing the same session (cookies, storage)</td></tr>
+  <tr><td>Page Independence</td><td>Each tab navigates to a different URL and operates independently</td></tr>
+  <tr><td>Context Sharing</td><td>All pages share the same browser context (isolated session)</td></tr>
+  <tr><td>Cleanup Order</td><td>Pages closed first, then context, then browser (reverse order of creation)</td></tr>
+</table>
+
+<h2>Execution Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total Test Cases</td><td>4</td></tr>
+  <tr><td>Passed</td><td>4</td></tr>
+  <tr><td>Failed</td><td>0</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Artifacts</td><td>Screenshots</td></tr>
+</table>
+
+<h2>Console Output</h2>
+<pre>
+Browser Launched
+Context Created
+Page 1 - Title: 
+Page 2 - Title: Example Domain
+Page 3 - Title: Wikipedia
+Browser closed successfully
+</pre>
+
+<h2>Screenshots</h2>
+
+<h3>TC-001: Page 1 navigates to VWO Login</h3>
+<img class="screenshot" src="../screenshots/BCP_Multiple_Pages/01-page1-vwo-login.png" alt="VWO Login Page">
+
+<h3>TC-002: Page 2 navigates to Example Domain</h3>
+<img class="screenshot" src="../screenshots/BCP_Multiple_Pages/02-page2-example.png" alt="Example Domain">
+
+<h3>TC-003: Page 3 navigates to Wikipedia</h3>
+<img class="screenshot" src="../screenshots/BCP_Multiple_Pages/03-page3-wikipedia.png" alt="Wikipedia">
+
+<h2>Source Code</h2>
+<pre>
+import {chromium, Browser, BrowserContext, Page} from "playwright";
+
+async function run() {
+
+    let browser: Browser = await chromium.launch({headless: false});
+    console.log("Browser Launched");
+
+    let context: BrowserContext = await browser.newContext();
+    console.log("Context Created");
+
+    let page1: Page = await context.newPage();
+    await page1.goto("https://app.vwo.com/login", { waitUntil: "networkidle" });
+    await page1.screenshot({ path: "screenshots/BCP_Multiple_Pages/01-page1-vwo-login.png", fullPage: true });
+    console.log("Page 1 - Title:", await page1.title());
+
+    let page2: Page = await context.newPage();
+    await page2.goto("https://example.com", { waitUntil: "networkidle" });
+    await page2.screenshot({ path: "screenshots/BCP_Multiple_Pages/02-page2-example.png", fullPage: true });
+    console.log("Page 2 - Title:", await page2.title());
+
+    let page3: Page = await context.newPage();
+    await page3.goto("https://www.wikipedia.org", { waitUntil: "networkidle" });
+    await page3.screenshot({ path: "screenshots/BCP_Multiple_Pages/03-page3-wikipedia.png", fullPage: true });
+    console.log("Page 3 - Title:", await page3.title());
+
+    await page1.close();
+    await page2.close();
+    await page3.close();
+    await context.close();
+    await browser.close();
+
+    console.log("Browser closed successfully");
+}
+
+run();
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Case - Basic_Test.spec.ts</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; }
+h1 { color: #1a1a2e; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 10px 14px; text-align: left; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; }
+tr:nth-child(even) { background: #f9fafb; }
+.highlight { background: #dbeafe; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1> Test Case Document</h1>
+<p><strong>Source File:</strong> <code>tests\Basics_Playwright\Basic_Test.spec.ts</code></p>
+<p><strong>Generated:</strong> July 8, 2026</p>
+
+<h2>Test Suite Overview</h2>
+<table>
+  <tr><th>Field</th><th>Details</th></tr>
+  <tr><td>Test Suite Name</td><td>TTACart Basic Verification</td></tr>
+  <tr><td>Application URL</td><td>https://app.thetestingacademy.com/playwright/ttacart/</td></tr>
+  <tr><td>Objective</td><td>Verify page load, elements visibility, and form input acceptance</td></tr>
+  <tr><td>Browser</td><td>Chromium only</td></tr>
+</table>
+
+<h2>Test Cases</h2>
+<table>
+  <tr>
+    <th>TC ID</th>
+    <th>Test Scenario</th>
+    <th>Test Steps</th>
+    <th>Expected Result</th>
+    <th>Browser</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td class="highlight">TC-001</td>
+    <td>Verify the page loads and has correct URL</td>
+    <td>
+      1. Navigate to https://app.thetestingacademy.com/playwright/ttacart/<br>
+      2. Assert URL contains "ttacart"<br>
+      3. Assert page title is "TTACart - Login"
+    </td>
+    <td>Page URL should contain "ttacart" and title should be "TTACart - Login"</td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">✅ PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-002</td>
+    <td>Verify login page elements are visible</td>
+    <td>
+      1. Navigate to https://app.thetestingacademy.com/playwright/ttacart/<br>
+      2. Assert Username textbox is visible<br>
+      3. Assert Password textbox is visible<br>
+      4. Assert Login button is visible
+    </td>
+    <td>Username textbox, Password textbox, and Login button should all be visible on the page</td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">✅ PASSED</td>
+  </tr>
+  <tr>
+    <td class="highlight">TC-003</td>
+    <td>Verify login form accepts input</td>
+    <td>
+      1. Navigate to https://app.thetestingacademy.com/playwright/ttacart/<br>
+      2. Fill Username field with "standard_user"<br>
+      3. Fill Password field with "tta_secret"<br>
+      4. Assert Username field has value "standard_user"<br>
+      5. Assert Password field has value "tta_secret"
+    </td>
+    <td>Username and password fields should accept and retain input values</td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">✅ PASSED</td>
+  </tr>
+</table>
+
+<h2>Execution Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total Test Cases</td><td>3</td></tr>
+  <tr><td>Passed</td><td>3</td></tr>
+  <tr><td>Failed</td><td>0</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Artifacts</td><td>Screenshots, Video, Trace</td></tr>
+</table>
+
+<h2>Test Results Details</h2>
+<table>
+  <tr><th>Test</th><th>Duration</th><th>Status</th></tr>
+  <tr><td>Verify the page loads and has correct URL</td><td>1.5s</td><td style="color:#16a34a; font-weight:700;">✅ PASSED</td></tr>
+  <tr><td>Verify login page elements are visible</td><td>1.3s</td><td style="color:#16a34a; font-weight:700;">✅ PASSED</td></tr>
+  <tr><td>Verify login form accepts input</td><td>1.7s</td><td style="color:#16a34a; font-weight:700;">✅ PASSED</td></tr>
+  <tr><td><strong>Total</strong></td><td><strong>6.6s</strong></td><td><strong>3/3 passed</strong></td></tr>
+</table>
+
+</body>
+</html>

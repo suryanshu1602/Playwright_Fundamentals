@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Case - BCP.spec.ts</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; }
+h1 { color: #1a1a2e; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; }
+h2 { color: #1a1a2e; margin-top: 28px; }
+h3 { color: #1a1a2e; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 10px 14px; text-align: left; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; }
+tr:nth-child(even) { background: #f9fafb; }
+.highlight { background: #dbeafe; font-weight: 600; }
+.screenshot { max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin: 8px 0; }
+.step-num { display: inline-block; background: #3b82f6; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-weight: 700; font-size: 12px; margin-right: 8px; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+pre { background: #1a1a2e; color: #e0e0e0; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Test Case Document</h1>
+<p><strong>Source File:</strong> <code>tests\first_tests\BCP.spec.ts</code></p>
+<p><strong>Generated:</strong> July 9, 2026</p>
+
+<h2>Test Suite Overview</h2>
+<table>
+  <tr><th>Field</th><th>Details</th></tr>
+  <tr><td>Test Suite Name</td><td>Browser Context Page (BCP) Launch Verification</td></tr>
+  <tr><td>Application URL</td><td>https://app.vwo.com</td></tr>
+  <tr><td>Objective</td><td>Verify browser launch, context creation, page navigation, and proper cleanup</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Script Type</td><td>Playwright Script (non-test-runner)</td></tr>
+</table>
+
+<h2>Test Cases</h2>
+<table>
+  <tr>
+    <th>TC ID</th>
+    <th>Test Scenario</th>
+    <th>Test Steps</th>
+    <th>Expected Result</th>
+    <th>Browser</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td class="highlight">TC-001</td>
+    <td>Verify Browser Launch, Context, Page and Navigation</td>
+    <td>
+      <span class="step-num">1</span> Launch Chromium browser with <code>chromium.launch({headless: false})</code><br>
+      <span class="step-num">2</span> Create a new browser context via <code>browser.newContext()</code><br>
+      <span class="step-num">3</span> Open a new page/tab via <code>context.newPage()</code><br>
+      <span class="step-num">4</span> Navigate to https://app.vwo.com<br>
+      <span class="step-num">5</span> Capture page title<br>
+      <span class="step-num">6</span> Close page, context, and browser (reverse order cleanup)
+    </td>
+    <td>
+      - Browser launches successfully with Chromium<br>
+      - Context creates an isolated session<br>
+      - Page navigates to VWO login page<br>
+      - Title displays "Login - Wingify"<br>
+      - Cleanup completes without errors
+    </td>
+    <td>Chromium</td>
+    <td style="color:#16a34a; font-weight:700;">&#10004; PASSED</td>
+  </tr>
+</table>
+
+<h2>Execution Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total Test Cases</td><td>1</td></tr>
+  <tr><td>Passed</td><td>1</td></tr>
+  <tr><td>Failed</td><td>0</td></tr>
+  <tr><td>Browser</td><td>Chromium</td></tr>
+  <tr><td>Artifacts</td><td>Screenshot</td></tr>
+</table>
+
+<h2>Console Output</h2>
+<pre>
+Browser Launched
+Context Created
+Page opened
+Title: Login - Wingify
+Browser closed successfully
+</pre>
+
+<h2>Screenshots</h2>
+
+<h3>Step 4: Navigate to VWO Login Page</h3>
+<img class="screenshot" src="../screenshots/BCP/01-navigate-to-vwo.png" alt="Navigate to VWO">
+
+<h2>Source Code</h2>
+<pre>
+import {chromium, Browser, BrowserContext, Page} from "playwright";
+import path from "path";
+
+async function run() {
+
+    let browser : Browser = await chromium.launch({headless: false});
+    console.log("Browser Launched", browser);
+
+    let context1: BrowserContext = await browser.newContext();
+    console.log("Context Created", context1);
+
+    let page: Page = await context1.newPage();
+    console.log("Page opened");
+
+    await page.goto("https://app.vwo.com");
+    await page.screenshot({ path: "screenshots/BCP/01-navigate-to-vwo.png", fullPage: true });
+    console.log("Title:", await page.title());
+
+    await page.close();
+    await context1.close();
+    await browser.close();
+
+    console.log("Browser closed successfully");
+}
+
+run();
+</pre>
+
+</body>
+</html>

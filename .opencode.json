@@ -1,0 +1,6 @@
+{
+  "model": "claude-sonnet-5",
+  "provider": "openai",
+  "baseUrl": "https://api.commandcode.ai/provider/v1",
+  "apiKey": "YOUR_COMMAND_CODE_API_KEY"
+}

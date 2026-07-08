@@ -1,0 +1,277 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/Basics_Playwright/Basic_Test.spec.ts",
+      "--project=chromium"
+    ],
+    "configFile": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\playwright.config.ts",
+    "rootDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/screenshots",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/screenshots",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/screenshots",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/XJDG84/Documents/AI tools/Playwright_JS/Playwright_Fundamentals/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "test report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFolder": "test report",
+          "outputFile": "results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 7,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "Basics_Playwright\\Basic_Test.spec.ts",
+      "file": "Basics_Playwright/Basic_Test.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify the page loads and has correct URL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1462,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-08T15:17:30.005Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-9b15d-e-loads-and-has-correct-URL-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-9b15d-e-loads-and-has-correct-URL-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-9b15d-e-loads-and-has-correct-URL-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e32c75a48104245346f5-4bab11018c60e0a8c053",
+          "file": "Basics_Playwright/Basic_Test.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "Verify login page elements are visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-08T15:17:32.000Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-ce6ea-n-page-elements-are-visible-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-ce6ea-n-page-elements-are-visible-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Te-ce6ea-n-page-elements-are-visible-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e32c75a48104245346f5-4235b0e57e80e71fce77",
+          "file": "Basics_Playwright/Basic_Test.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Verify login form accepts input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1663,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-08T15:17:33.425Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Test-Verify-login-form-accepts-input-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Test-Verify-login-form-accepts-input-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\XJDG84\\Documents\\AI tools\\Playwright_JS\\Playwright_Fundamentals\\screenshots\\Basics_Playwright-Basic_Test-Verify-login-form-accepts-input-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e32c75a48104245346f5-cd50e087db2ec7df6d8b",
+          "file": "Basics_Playwright/Basic_Test.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-08T15:17:28.773Z",
+    "duration": 6584.2429999999995,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
