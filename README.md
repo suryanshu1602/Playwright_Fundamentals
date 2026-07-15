@@ -8,6 +8,7 @@ Playwright test suite for web automation practice.
 |------|-------------|
 | `tests/example.spec.ts` | Basic Playwright test — navigates to TTACart and verifies page title |
 | `tests/Locators_Commands/Project_3_Singup_VWO.spec.ts` | VWO free trial signup — validates error message for invalid email |
+| `tests/Locators_Commands/Project_3_Singup_VWO_PW_Locator.spec.ts` | VWO free trial signup — validates error message for invalid email using Playwright built-in locators |
 
 ## Tests
 
